@@ -9,19 +9,21 @@ int main(void)
 	int* pArr;
 	int i;
 
-	printf("ÇëÊäÈëÄãÒª´æ·ÅµÄÔªËØµÄ¸öÊı:");
+	printf("è¯·è¾“å…¥ä½ è¦å­˜æ”¾çš„å…ƒç´ çš„ä¸ªæ•°:");
 	scanf_s("%d", &len);
-	pArr = (int*)malloc(4 * len);//¶¯Ì¬¹¹ÔìÒ»Î¬Êı×é
+	pArr = (int*)malloc(4 * len);//åŠ¨æ€æ„é€ ä¸€ç»´æ•°ç»„
 
 	for (i = 0; i < len; i++)
 	{
 		scanf_s("%d", &pArr[i]);
 	}
 
-	printf("Ò»Î¬Êı×éµÄÄÚÈİÊÇ:\n");
+	printf("ä¸€ç»´æ•°ç»„çš„å†…å®¹æ˜¯:\n");
 
 	for (i = 0; i < len; ++i)
 		printf("%d\n", pArr[i]);
+	
+	free(pArr);//é‡Šæ”¾æ‰åŠ¨æ€åˆ†é…çš„å†…å­˜
 
 
 
