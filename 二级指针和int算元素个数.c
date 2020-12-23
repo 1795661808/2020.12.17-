@@ -8,15 +8,39 @@ int main()
     int* s[3] = { a,b,c };
     int** ps = s;
     int i, j;
-    d[0] = sizeof(a) / sizeof(int);  //Êý×éaÔªËØµÄ¸öÊý
-    d[1] = sizeof(b) / sizeof(int);  //Êý×ébÔªËØµÄ¸öÊý
-    d[2] = sizeof(c) / sizeof(int);  //Êý×écÔªËØµÄ¸öÊý
+    d[0] = sizeof(a) / sizeof(int);  //æ•°ç»„aå…ƒç´ çš„ä¸ªæ•°  //é€šæ³•æ˜¯: sizeof(a)/sizeof(a[0]);
+    d[1] = sizeof(b) / sizeof(int);  //æ•°ç»„bå…ƒç´ çš„ä¸ªæ•°
+    d[2] = sizeof(c) / sizeof(int);  //æ•°ç»„cå…ƒç´ çš„ä¸ªæ•°
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < d[i]; j++)
-            printf("%3d", *((*ps + i) + j));  //*(ps+i)·Ö±ðÖ¸Ïòa,b,c
+            printf("%3d", *((*ps + i) + j));  //*(ps+i)åˆ†åˆ«æŒ‡å‘a,b,c
         printf("\n");
     }
 
     return 0;
 }
+
+/*
+    //from https://stackoverflow.com/questions/35020540/how-and-why-sizeofa-sizeofa0-in-c-is-used-to-calculate-the-number-of-eleme
+    
+    According to the C Standard (6.5.3.4 The sizeof and alignof operators)
+    
+    The sizeof operator yields the size (in bytes) of its operand, which may be an expression or the parenthesized name of a type. The size is determined from the type of the operand. The result is an integer. If the type of the operand is a variable length array type, the operand is evaluated; otherwise, the operand is not evaluated and the result is an integer constant.
+    
+    So if you have an array as for example
+
+    int a[N];
+    where N is some integer value then expression
+
+    sizeof( a )
+    yields the number of bytes occupied by the array. As the array has N elements and each element in turn occupies sizeof( int ) bytes then
+
+    sizeof( a ) == N * sizeof( int )
+    or what is the same
+
+    sizeof( a ) == N * sizeof( a[0] )
+    As result you can calculate N the following way
+
+    N = sizeof( a ) / sizeof( a[0] )
+*/
