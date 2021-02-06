@@ -11,11 +11,10 @@ void f(int** q)
 
 int main(void)
 {
-	int* p; //14行
+	int* p; 
 
 	f(&p);
-	printf("%d\n", *p); //17行 
-
+	printf("%d\n", *p); 
 
 	return 0;
 }
