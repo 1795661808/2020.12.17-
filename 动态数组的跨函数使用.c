@@ -3,18 +3,18 @@
 #include<malloc.h>
 void f(int** q) 
 {
-	*q = (int *)malloc(sizeof(int));//sizeof(Êı¾İ½á¹¹)·µ»ØÖµÊÇ¸ÃÊı¾İÀàĞÍËùÕ¼µÄ×Ö½Ú
-	 //µÈ¼ÛÓÚ p = (int *)malloc(sizeof(int));
+	*q = (int *)malloc(sizeof(int));//sizeof(æ•°æ®ç±»å‹)è¿”å›å€¼æ˜¯è¯¥æ•°æ®ç±»å‹æ‰€å çš„å­—èŠ‚
+	 //ç­‰ä»·äº p = (int *)malloc(sizeof(int));
 	**q = 5;
 
 }
 
 int main(void)
 {
-	int* p; //14ĞĞ
+	int* p; //14è¡Œ
 
 	f(&p);
-	printf("%d\n", *p); //17ĞĞ 
+	printf("%d\n", *p); //17è¡Œ 
 
 
 	return 0;
